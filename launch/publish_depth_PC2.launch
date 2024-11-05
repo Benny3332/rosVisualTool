@@ -1,0 +1,13 @@
+<launch>
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find fastlio_tum)/config/PC2_depth_lidar.rviz" />
+
+    <param name="depth_png_file" value="/data/bag/extra/gml_2024-10-15-10-45-17/_camera_depth_image_rect_raw/1728960408_565435410.png" type="str"/>
+    <param name="pcd_file" value="/data/bag/extra/gml_2024-10-15-10-45-17/_livox_lidar/1728960408_600302696.pcd" type="str"/>
+    <param name="lidar_pose" value="-2.54491 -1.94617 0.0879882 0.00166426 -0.0291217 -0.703818 -0.709781" type="string"/>
+    <param name="depth_pose" value="-2.647389 -1.706566 0.04599 0.7102217976901211 -0.00775504573193133 0.005841629374426121 -0.7039110261373668" type="string"/>
+
+    <node name="publish_depth_PC2_node" pkg="fastlio_tum" type="publish_depth_PC2_2" output="screen"/>
+
+    <node name="publish_PC2_node" pkg="fastlio_tum" type="publish_PC2" output="screen"/>
+
+</launch>

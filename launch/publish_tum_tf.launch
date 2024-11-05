@@ -1,0 +1,13 @@
+<launch>
+    <node name="tum_to_odometry_1" pkg="fastlio_tum" type="tum_to_topic" output="screen">
+        <param name="tum_file" value="/data/bag/extra/gml_2024-10-15-10-45-17/pose_mid_360_tamp.txt" type="str"/>
+        <param name="topic_name" value="/Odometry_mid360" type="str"/>
+    </node>
+
+    <node name="tum_to_odometry_2" pkg="fastlio_tum" type="tum_to_topic" output="screen">
+        <param name="tum_file" value="/data/bag/extra/gml_2024-10-15-10-45-17/poses_stamped.txt" type="str"/>
+        <param name="topic_name" value="/Odometry_realsense" type="str"/>
+    </node>
+
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find fastlio_tum)/config/tum_to_topic.rviz" />
+</launch>
